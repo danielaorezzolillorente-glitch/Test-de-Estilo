@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test de Estilo — Dani Orezzoli</title>
+<style>
+  @font-face {
+    font-family: 'Petit Cochon';
+    src: url('fonts/PetitCochon.ttf') format('truetype');
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Madani';
+    src: url('fonts/Madani.otf') format('opentype');
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Handmade';
+    src: url('fonts/Handmade.woff2') format('woff2'),
+         url('fonts/Handmade.ttf') format('truetype'),
+         url('fonts/Handmade.otf') format('opentype');
+    font-display: swap;
+  }
+  :root {
+    /* paleta de marca Dani Orezzoli */
+    --rosa: #DB4B93;
+    --rosa-medio: #EA73B4;
+    --rosa-claro: #EC90BB;
+    --rosa-suave: #F6DCEC;
+    --rosa-bebe: #FFF5FC;
+    --azul-oscuro: #2B447E;
+    --azul: #4865D1;
+    --celeste: #60A6E8;
+    --celeste-claro: #B3DDFF;
+    --negro: #1D1D1B;
+    --gris-oscuro: #545151;
+    --gris: #8E8A8A;
+    --crema: #FCF9F5;
+    --amarillo: #F4ED95;
+    --crema-amarilla: #FFFCDC;
+    --rojo: #E4415C;
+    --verde: #7EC083;
+    --borde: #E9DCE4;
+    --blanco-suave: rgba(255, 255, 255, .88);
+    --crema-guia: #F5EDEB;   /* fondo de las páginas de la Guía de Estilos */
+    --pista: rgba(255, 255, 255, .6);
+    --blanco: #FFFFFF;
+    /* forma festoneada (flor) para las burbujas de resultados */
+    --flor: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Cpath%20d%3D%22M92.50%2C50.00L93.25%2C50.94L93.91%2C51.92L94.43%2C52.91L94.78%2C53.92L94.90%2C54.92L94.79%2C55.90L94.45%2C56.84L93.89%2C57.74L93.15%2C58.58L92.29%2C59.37L91.34%2C60.12L90.38%2C60.82L89.46%2C61.50L88.63%2C62.18L87.95%2C62.88L87.44%2C63.63L87.11%2C64.43L86.96%2C65.31L86.97%2C66.27L87.11%2C67.31L87.34%2C68.41L87.59%2C69.57L87.82%2C70.75L87.98%2C71.92L88.00%2C73.06L87.86%2C74.12L87.54%2C75.08L87.02%2C75.92L86.30%2C76.62L85.42%2C77.18L84.39%2C77.60L83.26%2C77.91L82.09%2C78.14L80.90%2C78.32L79.76%2C78.49L78.70%2C78.70L77.75%2C78.99L76.93%2C79.39L76.25%2C79.93L75.69%2C80.61L75.24%2C81.45L74.87%2C82.41L74.55%2C83.48L74.24%2C84.62L73.90%2C85.78L73.51%2C86.90L73.02%2C87.93L72.42%2C88.83L71.70%2C89.56L70.87%2C90.09L69.93%2C90.41L68.90%2C90.52L67.80%2C90.45L66.66%2C90.22L65.51%2C89.88L64.38%2C89.50L63.28%2C89.11L62.23%2C88.79L61.25%2C88.59L60.32%2C88.53L59.46%2C88.66L58.64%2C88.98L57.85%2C89.48L57.08%2C90.15L56.30%2C90.93L55.50%2C91.79L54.67%2C92.66L53.80%2C93.48L52.90%2C94.19L51.95%2C94.73L50.98%2C95.08L50.00%2C95.20L49.02%2C95.08L48.05%2C94.73L47.10%2C94.19L46.20%2C93.48L45.33%2C92.66L44.50%2C91.79L43.70%2C90.93L42.92%2C90.15L42.15%2C89.48L41.36%2C88.98L40.54%2C88.66L39.68%2C88.53L38.75%2C88.59L37.77%2C88.79L36.72%2C89.11L35.62%2C89.50L34.49%2C89.88L33.34%2C90.22L32.20%2C90.45L31.10%2C90.52L30.07%2C90.41L29.13%2C90.09L28.30%2C89.56L27.58%2C88.83L26.98%2C87.93L26.49%2C86.90L26.10%2C85.78L25.76%2C84.62L25.45%2C83.48L25.13%2C82.41L24.76%2C81.45L24.31%2C80.61L23.75%2C79.93L23.07%2C79.39L22.25%2C78.99L21.30%2C78.70L20.24%2C78.49L19.10%2C78.32L17.91%2C78.14L16.74%2C77.91L15.61%2C77.60L14.58%2C77.18L13.70%2C76.62L12.98%2C75.92L12.46%2C75.08L12.14%2C74.12L12.00%2C73.06L12.02%2C71.93L12.18%2C70.75L12.41%2C69.57L12.66%2C68.41L12.89%2C67.31L13.03%2C66.27L13.04%2C65.31L12.89%2C64.43L12.56%2C63.63L12.05%2C62.88L11.37%2C62.18L10.54%2C61.50L9.62%2C60.82L8.66%2C60.12L7.71%2C59.37L6.85%2C58.58L6.11%2C57.74L5.55%2C56.84L5.21%2C55.90L5.10%2C54.92L5.22%2C53.92L5.57%2C52.91L6.09%2C51.92L6.75%2C50.94L7.50%2C50.00L8.27%2C49.09L8.99%2C48.21L9.62%2C47.35L10.10%2C46.51L10.41%2C45.66L10.52%2C44.80L10.44%2C43.91L10.18%2C42.98L9.79%2C42.00L9.30%2C40.98L8.78%2C39.91L8.27%2C38.82L7.85%2C37.72L7.57%2C36.62L7.46%2C35.56L7.56%2C34.55L7.89%2C33.62L8.43%2C32.78L9.17%2C32.04L10.08%2C31.38L11.10%2C30.82L12.20%2C30.32L13.30%2C29.87L14.36%2C29.43L15.33%2C28.96L16.18%2C28.45L16.86%2C27.86L17.39%2C27.17L17.76%2C26.36L17.98%2C25.43L18.10%2C24.40L18.15%2C23.28L18.18%2C22.09L18.23%2C20.89L18.36%2C19.71L18.60%2C18.60L18.97%2C17.59L19.51%2C16.72L20.20%2C16.02L21.05%2C15.50L22.04%2C15.16L23.13%2C14.98L24.29%2C14.94L25.49%2C14.99L26.68%2C15.10L27.83%2C15.21L28.92%2C15.26L29.92%2C15.22L30.82%2C15.04L31.62%2C14.69L32.33%2C14.18L32.97%2C13.49L33.56%2C12.65L34.13%2C11.69L34.70%2C10.66L35.30%2C9.62L35.95%2C8.62L36.67%2C7.73L37.46%2C6.98L38.33%2C6.43L39.26%2C6.10L40.24%2C5.99L41.27%2C6.11L42.32%2C6.44L43.37%2C6.92L44.41%2C7.51L45.42%2C8.16L46.40%2C8.80L47.34%2C9.37L48.25%2C9.82L49.13%2C10.10L50.00%2C10.20L50.87%2C10.10L51.75%2C9.82L52.66%2C9.37L53.60%2C8.80L54.58%2C8.16L55.59%2C7.51L56.63%2C6.92L57.68%2C6.44L58.73%2C6.11L59.76%2C5.99L60.74%2C6.10L61.67%2C6.43L62.54%2C6.98L63.33%2C7.73L64.05%2C8.62L64.70%2C9.62L65.30%2C10.66L65.87%2C11.69L66.44%2C12.65L67.03%2C13.49L67.67%2C14.18L68.38%2C14.69L69.18%2C15.04L70.08%2C15.22L71.08%2C15.26L72.17%2C15.21L73.32%2C15.10L74.51%2C14.99L75.71%2C14.94L76.87%2C14.98L77.96%2C15.16L78.95%2C15.50L79.80%2C16.02L80.49%2C16.72L81.03%2C17.59L81.40%2C18.60L81.64%2C19.71L81.77%2C20.89L81.82%2C22.09L81.85%2C23.28L81.90%2C24.40L82.02%2C25.43L82.24%2C26.36L82.61%2C27.17L83.14%2C27.86L83.82%2C28.45L84.67%2C28.96L85.64%2C29.43L86.70%2C29.87L87.80%2C30.32L88.90%2C30.82L89.92%2C31.38L90.83%2C32.04L91.57%2C32.78L92.11%2C33.62L92.44%2C34.55L92.54%2C35.56L92.43%2C36.62L92.15%2C37.72L91.73%2C38.82L91.22%2C39.91L90.70%2C40.98L90.21%2C42.00L89.82%2C42.98L89.56%2C43.91L89.48%2C44.80L89.59%2C45.66L89.90%2C46.51L90.38%2C47.35L91.01%2C48.21L91.73%2C49.09Z%22%20fill%3D%22%23000%22/%3E%3C/svg%3E");
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background: #F5A9CC;
+    color: var(--negro);
+    min-height: 100vh;
+  }
+  /* fondo: foto de marca (capa fija, funciona también en iPhone) */
+  /* velo blanco 15% encima para suavizar la intensidad (pedido de Dani) */
+  body::before {
+    content: "";
+    position: fixed; inset: 0; z-index: -1;
+    background:
+      linear-gradient(rgba(255, 255, 255, .15), rgba(255, 255, 255, .15)),
+      url("img/fondo-app.webp") center center / cover no-repeat;
+    background-color: #F7C3DA;
+  }
+  .oculto { display: none !important; }
+
+  /* ---------- barra de progreso ---------- */
+  #barra-wrap {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(255, 255, 255, .55);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 14px 20px 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, .5);
+  }
+  #barra-info { display: flex; justify-content: space-between; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--gris); margin-bottom: 8px; }
+  #barra-fondo { height: 5px; background: var(--pista); border-radius: 99px; overflow: hidden; }
+  #barra-relleno { height: 100%; width: 0%; background: var(--rosa); border-radius: 99px; transition: width .4s ease; }
+
+  .pantalla { max-width: 780px; margin: 0 auto; padding: 34px 22px 120px; }
+
+  /* ---------- portada ---------- */
+  #portada {
+    text-align: center;
+    min-height: 92vh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding-top: 34vh; box-sizing: border-box;
+  }
+  #portada .fila-botones { margin-top: 30px; }
+  .marca { font-size: 13px; letter-spacing: .3em; text-transform: uppercase; color: var(--blanco); margin-bottom: 26px; }
+  #portada h1, .portada-saludo, .intro-titulo, .hub-titulo, .sec-titulo, #formulario h2, #resultados h2, .reflexion h3 {
+    font-family: 'Petit Cochon', 'Arial Black', sans-serif;
+    text-transform: uppercase;
+    font-weight: normal;
+    letter-spacing: .02em;
+    color: var(--blanco);
+    text-shadow: .055em .055em 0 var(--negro);
+  }
+  .portada-saludo {
+    text-transform: none;
+    font-size: clamp(30px, 7vw, 48px);
+    line-height: 1.05;
+    margin-bottom: 4px;
+  }
+  #portada h1 {
+    font-size: clamp(40px, 10.2vw, 104px);
+    line-height: 1.0;
+    margin-bottom: 8px;
+    white-space: nowrap;
+  }
+  #portada h1 em { color: inherit; font-style: normal; }
+  .portada-logo {
+    display: block;
+    width: clamp(200px, 58vw, 300px);
+    height: auto;
+    margin: 0 auto 14px;
+  }
+
+  /* ---------- video de bienvenida (intro) ---------- */
+  #intro { text-align: center; padding-top: 46px; }
+  .intro-titulo { font-size: clamp(34px, 8vw, 56px); line-height: 1.05; margin-bottom: 10px; }
+  .intro-sub { font-size: 16px; line-height: 1.55; max-width: 460px; margin: 0 auto 22px; color: var(--blanco-suave); }
+  .video-marco {
+    max-width: 560px; margin: 0 auto; border-radius: 22px; overflow: hidden;
+    background: rgba(255, 255, 255, .14); border: 1px solid rgba(255, 255, 255, .35);
+    box-shadow: 0 10px 34px rgba(0, 0, 0, .16);
+  }
+  .intro-video { display: block; width: 100%; height: auto; }
+  .video-placeholder {
+    aspect-ratio: 16 / 9; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 12px; color: var(--blanco); font-size: 14.5px; letter-spacing: .04em;
+    background:
+      repeating-linear-gradient(45deg, rgba(255,255,255,.05) 0 12px, rgba(255,255,255,0) 12px 24px);
+  }
+  #intro .fila-botones { margin-top: 24px; }
+  .fila-stickers { display: flex; justify-content: center; gap: 22px; margin: 4px 0 30px; }
+  .sticker { width: 26px; height: 26px; }
+  .fila-stickers .sticker:nth-child(1) { transform: rotate(-8deg); }
+  .fila-stickers .sticker:nth-child(3) { transform: rotate(10deg); }
+  .squiggle { display: block; margin: 2px auto 8px; width: 84px; height: 12px; color: rgba(255, 255, 255, .8); }
+  #portada p { font-size: 17px; font-weight: 400; line-height: 1.65; max-width: 560px; margin: 0 auto 18px; color: var(--blanco-suave); }
+  #portada strong { font-weight: 700; color: var(--blanco); }
+
+  /* ---------- secciones ---------- */
+  .sec-titulo { font-size: clamp(28px, 6vw, 40px); text-align: center; margin-bottom: 4px; line-height: 1.0; }
+  .sec-titulo span { color: inherit; }
+  .sec-instruccion {
+    text-align: center; font-weight: 700; font-style: italic; font-size: 15.5px;
+    line-height: 1.3; color: var(--gris-oscuro); max-width: 600px; margin: 0 auto 16px;
+  }
+
+  /* chips de texto */
+  .grilla-chips { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+  .chip {
+    border: 1.5px solid var(--borde); background: var(--blanco); border-radius: 99px;
+    padding: 11px 20px; font-size: 15.5px; font-family: inherit; cursor: pointer;
+    transition: all .15s ease; user-select: none;
+  }
+  .chip:hover { border-color: var(--rosa); }
+  .chip.sel { background: var(--negro); border-color: var(--negro); color: #fff; }
+  .chip.sel::after { content: " ♥"; color: var(--rosa); }
+
+  /* pastillas de color apiladas (estilo paleta) */
+  .lista-pastillas { max-width: 460px; margin: 0 auto; display: flex; flex-direction: column; }
+  .pastilla {
+    position: relative; cursor: pointer; user-select: none;
+    align-self: center; width: calc(100% - 56px);
+    height: 60px; border-radius: 99px; margin-top: -2px;
+    display: flex; align-items: center; padding: 0 26px;
+    color: var(--negro); font-weight: 600; font-size: 18px; letter-spacing: .01em;
+    box-shadow: 0 2px 8px rgba(0,0,0,.12);
+    transform: translateX(var(--shift, 0px)) rotate(var(--rot, 0deg));
+    transition: transform .14s ease;
+  }
+  .pastilla.oscura { color: #fff; }
+  /* 6 combinaciones distintas de ángulo + desplazamiento (paleta esparcida, orgánica) */
+  .pastilla:nth-child(6n+1) { --rot: -4deg;   --shift: -26px; justify-content: flex-start; }
+  .pastilla:nth-child(6n+2) { --rot:  3deg;   --shift:  24px; justify-content: flex-end; }
+  .pastilla:nth-child(6n+3) { --rot: -2deg;   --shift:  -8px; justify-content: flex-start; }
+  .pastilla:nth-child(6n+4) { --rot:  4.5deg; --shift:  14px; justify-content: flex-end; }
+  .pastilla:nth-child(6n+5) { --rot: -3.5deg; --shift: -18px; justify-content: flex-start; }
+  .pastilla:nth-child(6n)   { --rot:  2deg;   --shift:   6px; justify-content: flex-end; }
+  /* el corazón siempre al borde exterior; nombre al lado del desplazamiento */
+  .pastilla:nth-child(even) .pastilla-nombre { order: 2; }
+  .pastilla:nth-child(even) .pastilla-check  { order: 1; margin-left: 0; margin-right: auto; }
+  .pastilla:hover { transform: translateX(var(--shift, 0px)) rotate(var(--rot, 0deg)) scale(1.03); z-index: 2; }
+  .pastilla-check {
+    margin-left: auto; opacity: 0; transform: scale(.5); transition: all .15s ease;
+    width: 22px; height: 22px; color: transparent; flex: 0 0 auto;
+    background: url("img/cara-feliz.webp") center / contain no-repeat;
+    filter: drop-shadow(0 1px 3px rgba(0,0,0,.3));
+  }
+  .pastilla.sel { z-index: 3; box-shadow: 0 0 0 3px #fff, 0 3px 12px rgba(0,0,0,.25); }
+  .pastilla.sel .pastilla-check { opacity: 1; transform: scale(1); }
+
+  /* tarjetas con imagen */
+  .grilla-cartas { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  @media (min-width: 640px) { .grilla-cartas { grid-template-columns: repeat(3, 1fr); } }
+  .carta {
+    background: var(--blanco); border-radius: 16px; overflow: hidden; cursor: pointer;
+    border: 2px solid transparent; position: relative; transition: transform .12s ease;
+    box-shadow: 0 1px 6px rgba(0,0,0,.06);
+  }
+  .carta:hover { transform: translateY(-2px); }
+  .carta.sel { border-color: var(--rosa); }
+  .carta.sel::after {
+    content: ""; position: absolute; top: 7px; right: 8px; width: 22px; height: 22px;
+    background: url("img/cara-feliz.webp") center / contain no-repeat;
+    filter: drop-shadow(0 1px 3px rgba(0,0,0,.35));
+  }
+  .carta img { width: 100%; aspect-ratio: 1/1.15; object-fit: contain; background: #fff; display: block; padding: 8px; }
+  /* la tarjeta toma la proporción de origen para que la foto llene sin franjas */
+  .grilla-cartas.cuadradas .carta img { aspect-ratio: 1/1; object-fit: cover; padding: 0; }
+  .grilla-cartas.verticales .carta img { aspect-ratio: 1/1.43; object-fit: cover; padding: 0; }
+  /* prendas: recortes con transparencia sobre el crema de la Guía de Estilos */
+  .grilla-cartas.crema .carta,
+  .grilla-cartas.crema .carta img { background: var(--crema-guia); }
+  .grilla-cartas.crema .carta img { aspect-ratio: 1/1.3; padding: 6px; }
+  /* nombre DEBAJO (prendas y complementos): negro sobre el espacio crema */
+  .carta .nombre { font-size: 16px; font-weight: 600; text-align: center; padding: 10px 6px 14px; letter-spacing: .01em; color: var(--negro); }
+
+  /* nombre ENCIMA de la foto (glam, textiles, referentes): blanco con degradado */
+  .grilla-cartas.nombre-encima .carta { position: relative; }
+  .grilla-cartas.nombre-encima .carta .nombre {
+    position: absolute; left: 0; right: 0; bottom: 0; padding: 34px 8px 12px;
+    color: #fff; font-weight: 600; font-size: 16px; letter-spacing: .01em;
+    text-shadow: 0 1px 4px rgba(0,0,0,.35);
+    background: linear-gradient(to top, rgba(0,0,0,.82) 0%, rgba(0,0,0,.45) 45%, rgba(0,0,0,0) 100%);
+    pointer-events: none;
+  }
+
+  /* botones */
+  .fila-botones { display: flex; justify-content: center; gap: 14px; margin-top: 38px; }
+  /* botones estilo "sticker": borde negro grueso + sombra dura, como la ref de marca */
+  .btn {
+    font-family: inherit; font-size: 15px; letter-spacing: .08em; text-transform: uppercase;
+    font-weight: 800;
+    padding: 15px 40px; border-radius: 99px;
+    border: 3px solid var(--negro); color: var(--negro); cursor: pointer;
+    box-shadow: 4px 4px 0 var(--negro);
+    transition: transform .12s ease, box-shadow .12s ease, background .15s ease;
+  }
+  .btn:hover { transform: translate(-1px, -1px); box-shadow: 5px 5px 0 var(--negro); }
+  .btn:active { transform: translate(4px, 4px); box-shadow: 0 0 0 var(--negro); }
+  .btn:disabled { opacity: .5; cursor: default; box-shadow: 4px 4px 0 var(--negro); transform: none; }
+  .btn-rosa { background: var(--rosa-medio); color: var(--negro); }
+  .btn-rosa:hover { background: #ef85c0; }
+  .btn-azul { background: var(--azul); color: #fff; }
+  .btn-azul:hover { background: #5a76e0; }
+  .btn-fantasma { background: #fff; color: var(--negro); }
+  .btn-fantasma:hover { background: #f4f4f4; }
+  .contador-sel { text-align: center; margin-top: 14px; font-size: 14px; color: var(--gris); }
+
+  /* deck estilo tinder (sección Aesthetics) */
+  .deck-wrap { display: flex; flex-direction: column; align-items: center; }
+  .deck {
+    position: relative; aspect-ratio: 3 / 4.05;
+    height: min(62vh, 600px); max-width: 90vw;
+  }
+  /* mazo de estilos centrado verticalmente en la pantalla (sobre la barra fija) */
+  #seccion.seccion-deck {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    min-height: 100vh; box-sizing: border-box;
+  }
+  .tarjeta-tinder {
+    position: absolute; inset: 0;
+    touch-action: none; user-select: none; -webkit-user-select: none;
+    filter: drop-shadow(0 8px 18px rgba(0,0,0,.18));
+  }
+  /* marco blanco con borde ondulado irregular */
+  .tarjeta-forma {
+    position: absolute; inset: 0; background: var(--crema-guia);
+    padding: 6.5% 7%;
+    -webkit-mask: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20300%20400%22%3E%3Cpath%20d%3D%22M9%209Q23%202%2037%209Q51%2016%2065%209Q80%202%2094%209Q108%2016%20122%209Q136%202%20150%209Q164%2016%20178%209Q192%202%20206%209Q220%2016%20235%209Q249%202%20263%209Q277%2016%20291%209Q298%2025%20291%2041Q284%2057%20291%2073Q298%2089%20291%20104Q284%20120%20291%20136Q298%20152%20291%20168Q284%20184%20291%20200Q298%20216%20291%20232Q284%20248%20291%20264Q298%20280%20291%20296Q284%20311%20291%20327Q298%20343%20291%20359Q284%20375%20291%20391Q277%20398%20263%20391Q249%20384%20235%20391Q220%20398%20206%20391Q192%20384%20178%20391Q164%20398%20150%20391Q136%20384%20122%20391Q108%20398%2094%20391Q80%20384%2065%20391Q51%20398%2037%20391Q23%20384%209%20391Q2%20375%209%20359Q16%20343%209%20327Q2%20311%209%20296Q16%20280%209%20264Q2%20248%209%20232Q16%20216%209%20200Q2%20184%209%20168Q16%20152%209%20136Q2%20120%209%20104Q16%2089%209%2073Q2%2057%209%2041Q16%2025%209%209Z%22%20fill%3D%22%23000%22/%3E%3C/svg%3E') center / 100% 100% no-repeat;
+    mask: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20300%20400%22%3E%3Cpath%20d%3D%22M9%209Q23%202%2037%209Q51%2016%2065%209Q80%202%2094%209Q108%2016%20122%209Q136%202%20150%209Q164%2016%20178%209Q192%202%20206%209Q220%2016%20235%209Q249%202%20263%209Q277%2016%20291%209Q298%2025%20291%2041Q284%2057%20291%2073Q298%2089%20291%20104Q284%20120%20291%20136Q298%20152%20291%20168Q284%20184%20291%20200Q298%20216%20291%20232Q284%20248%20291%20264Q298%20280%20291%20296Q284%20311%20291%20327Q298%20343%20291%20359Q284%20375%20291%20391Q277%20398%20263%20391Q249%20384%20235%20391Q220%20398%20206%20391Q192%20384%20178%20391Q164%20398%20150%20391Q136%20384%20122%20391Q108%20398%2094%20391Q80%20384%2065%20391Q51%20398%2037%20391Q23%20384%209%20391Q2%20375%209%20359Q16%20343%209%20327Q2%20311%209%20296Q16%20280%209%20264Q2%20248%209%20232Q16%20216%209%20200Q2%20184%209%20168Q16%20152%209%20136Q2%20120%209%20104Q16%2089%209%2073Q2%2057%209%2041Q16%2025%209%209Z%22%20fill%3D%22%23000%22/%3E%3C/svg%3E') center / 100% 100% no-repeat;
+  }
+  .tarjeta-forma img {
+    width: 100%; height: 100%; object-fit: contain;
+    border-radius: 4px; display: block; pointer-events: none;
+  }
+  .etiqueta-tinder {
+    position: absolute; bottom: 14px; left: 14px; background: rgba(20,20,20,.78); color: #fff;
+    padding: 8px 18px; border-radius: 99px; font-size: 15px; letter-spacing: .07em;
+  }
+  .stamp {
+    position: absolute; top: 20px; font-weight: 600; font-size: 26px; letter-spacing: .12em;
+    padding: 6px 16px; border-radius: 10px; border: 3.5px solid; opacity: 0; pointer-events: none;
+  }
+  .stamp.si { left: 18px; color: var(--verde); border-color: var(--verde); transform: rotate(-12deg); }
+  .stamp.no { right: 18px; color: var(--rojo); border-color: var(--rojo); transform: rotate(12deg); }
+  .deck-controles { display: flex; align-items: center; gap: 28px; margin-top: 14px; }
+  .btn-circulo {
+    width: 64px; height: 64px; border-radius: 99px; border: 3px solid var(--negro); cursor: pointer; font-size: 26px;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 3px 3px 0 var(--negro); transition: transform .12s ease, box-shadow .12s ease; background: #fff;
+  }
+  .btn-circulo:active { transform: translate(3px, 3px); box-shadow: 0 0 0 var(--negro); }
+  .btn-no { color: var(--rojo); background: #fff; }
+  .btn-si { background: var(--rosa-medio); color: var(--negro); }
+  .deck-progreso { font-size: 14px; color: var(--blanco); min-width: 64px; text-align: center; text-shadow: 0 1px 3px rgba(0,0,0,.15); }
+
+  /* barra de acciones fija en las secciones */
+  #accion-bar {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 40;
+    background: rgba(255, 255, 255, .55);
+    border-top: 1px solid rgba(255, 255, 255, .5);
+    padding: 8px 18px calc(12px + env(safe-area-inset-bottom));
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  #accion-bar .contador-sel { margin-top: 0; font-size: 13px; }
+  #accion-bar .fila-botones { margin-top: 8px; }
+  #accion-bar .btn { flex: 1; max-width: 260px; }
+  #seccion { padding-bottom: 175px; user-select: none; -webkit-user-select: none; }
+
+  @media (max-width: 640px) {
+    .pantalla { padding: 26px 16px 110px; }
+    #seccion { padding-bottom: 160px; }
+    .chip { padding: 9px 15px; font-size: 14px; }
+    .grilla-chips { gap: 8px; }
+    .grilla-cartas { gap: 10px; }
+    .sec-instruccion { font-size: 14.5px; margin-bottom: 12px; }
+    #accion-bar .btn { padding: 13px 16px; font-size: 14px; }
+  }
+
+  /* ---------- formulario ---------- */
+  #formulario {
+    max-width: 480px;
+    min-height: 100vh; box-sizing: border-box;
+    display: flex; flex-direction: column; justify-content: center;
+    padding-top: 30px; padding-bottom: 30px;   /* balanceado: sin el padding inferior grande de .pantalla */
+  }
+  #formulario h2 { font-size: clamp(28px, 6vw, 38px); text-align: center; margin-bottom: 10px; }
+  #formulario .sec-instruccion { margin-bottom: 26px; }
+  .campo { margin-bottom: 18px; }
+  .campo label { display: block; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--blanco); margin-bottom: 7px; }
+  .campo input {
+    width: 100%; padding: 15px 18px; font-family: inherit; font-size: 16px;
+    border: 1.5px solid var(--borde); border-radius: 12px; background: var(--blanco); outline: none;
+  }
+  .campo input:focus { border-color: var(--rosa); }
+  .error-msg { color: var(--rojo); font-size: 13.5px; margin-top: 5px; display: none; }
+  .campo label .req { color: #FFE14D; font-size: 16px; }
+  .nota-celular {
+    font-size: 15px; color: var(--rosa); line-height: 1.5; margin-top: 9px; font-weight: 700;
+  }
+  .nota-celular strong { color: var(--rosa); font-weight: 800; }
+  .nota-privacidad { font-size: 12.5px; color: var(--blanco-suave); text-align: center; line-height: 1.5; margin-top: 18px; }
+
+  /* ---------- resultados ---------- */
+  #resultados h2 { font-size: clamp(38px, 9vw, 60px); text-align: center; margin-bottom: 6px; line-height: 1.02; }
+  #resultados h2 em { color: inherit; font-style: normal; }
+  #res-saludo .res-linea2 { display: block; font-family: 'Madani', 'Arial Black', sans-serif; color: var(--blanco); font-size: .42em; line-height: 1.2; margin-top: .45em; letter-spacing: .02em; }
+  .sub-resultado { text-align: center; font-weight: 400; margin-bottom: 34px; color: var(--blanco-suave); }
+  /* nube de burbujas festoneadas superpuestas, tamaño proporcional al resultado */
+  #nube-estilos {
+    position: relative; width: min(94vw, 430px); aspect-ratio: 1 / 1;
+    margin: 34px auto 30px; container-type: inline-size;
+  }
+  /* el wrapper lleva la sombra dura que sigue el contorno festón (relieve como los badges) */
+  .blob-wrap { filter: drop-shadow(3px 3px 0 var(--negro)); }
+  .blob {
+    width: 100%; height: 100%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+    color: #fff; font-family: 'Petit Cochon', 'Arial Black', sans-serif; font-weight: normal;
+    text-transform: uppercase; line-height: 1.0; padding: 10px; letter-spacing: .02em;
+    text-shadow: .055em .055em 0 var(--negro);
+    -webkit-mask: var(--flor) center / 100% 100% no-repeat;
+    mask: var(--flor) center / 100% 100% no-repeat;
+  }
+  .blob-pct { font-size: 1.55em; line-height: 1; }
+  .blob-nom { font-size: .78em; line-height: 1.05; margin-top: .12em; }
+  .lista-estilos { max-width: 520px; margin: 0 auto; }
+  .fila-estilo { margin-bottom: 16px; }
+  .fila-estilo .cab { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
+  .fila-estilo .nom { font-size: 16px; letter-spacing: .06em; display: flex; align-items: center; gap: 9px; }
+  .punto { width: 15px; height: 15px; border-radius: 99px; display: inline-block; box-shadow: 1.6px 1.6px 0 var(--negro); }
+  .fila-estilo .pct {
+    font-family: 'Petit Cochon', 'Arial Black', sans-serif; font-size: 23px;
+    color: var(--blanco); text-shadow: .055em .055em 0 var(--negro);
+  }
+  .pista { height: 9px; background: var(--pista); border-radius: 99px; overflow: hidden; }
+  .relleno { height: 100%; border-radius: 99px; width: 0; transition: width 1s ease; }
+  .top-badge {
+    font-size: 11px; letter-spacing: .15em; text-transform: uppercase;
+    background: var(--amarillo); color: var(--negro); border-radius: 99px; padding: 4px 11px;
+    display: inline-block; transform: rotate(-2deg); box-shadow: 1.5px 1.5px 0 var(--negro);
+  }
+  /* reflexión sobre el cuaderno (fondo). Texto en la hoja rayada (derecha). */
+  .reflexion {
+    --nw: min(94vw, 460px);                        /* ancho real del cuaderno */
+    width: var(--nw); margin: 56px auto 48px;
+    min-height: calc(var(--nw) / 0.698);           /* proporción del cuaderno nuevo (no se estira) */
+    background: url("img/cuaderno.webp") center / 100% 100% no-repeat;
+    box-sizing: border-box;
+    /* padding relativo al ANCHO DEL CUADERNO (calc), no al padre → igual en móvil y desktop */
+    padding: calc(var(--nw) * 0.23) calc(var(--nw) * 0.11) calc(var(--nw) * 0.10) calc(var(--nw) * 0.33);
+    display: flex; flex-direction: column; justify-content: center;   /* texto centrado verticalmente en el cuaderno */
+    text-align: center; font-family: 'Handmade', 'Comic Sans MS', cursive;
+    color: #40395a; font-weight: 400;
+  }
+  .reflexion h3 {
+    font-family: 'Handmade', 'Comic Sans MS', cursive; font-size: 27px; margin: 0 0 15px;
+    color: var(--azul); text-align: center; text-transform: none;
+    white-space: nowrap; line-height: 1;
+    -webkit-text-stroke: .5px var(--azul); text-shadow: none;   /* "negrita" (Give You Glory no trae bold) */
+  }
+  .reflexion-preguntas { text-align: left; }        /* cada pregunta arranca a la izquierda */
+  .reflexion-preguntas p { margin: 0 0 8px; font-size: 17px; line-height: 1.18; }
+  .reflexion-preguntas p:last-child { margin-bottom: 0; }
+  .cta-final { text-align: center; margin-top: 36px; }
+  .cta-final p { font-weight: 300; margin-bottom: 16px; }
+  .cta-final .cta-titulo {
+    font-family: 'Petit Cochon', 'Arial Black', sans-serif; font-weight: normal;
+    text-transform: uppercase; color: var(--blanco); text-shadow: .055em .055em 0 var(--negro);
+    font-size: clamp(33px, 9vw, 58px); line-height: 1.05; letter-spacing: .01em;
+    margin: 0 auto 12px;
+  }
+  .cta-final .cta-sub {
+    font-weight: 800; text-transform: uppercase; color: var(--blanco);
+    text-shadow: .03em .03em 0 var(--negro);
+    font-size: clamp(17px, 4.4vw, 23px); letter-spacing: .04em; margin: 0 auto 4px;
+  }
+  .cta-manito { line-height: 1; margin: 4px 0 14px; }
+  .cta-manito svg { width: 46px; height: auto; display: inline-block; }
+  .cta-video { margin: 0 auto 20px; }
+  .pie {
+    text-align: center; margin-top: 50px; font-size: 12.5px; letter-spacing: .2em; text-transform: uppercase;
+    color: var(--blanco); font-weight: 700; text-shadow: 0 2px 5px rgba(0, 0, 0, .4);
+  }
+
+  /* ---------- menú principal (hub) ---------- */
+  #hub { text-align: center; }
+  .hub-titulo { font-size: clamp(38px, 9vw, 66px); line-height: 1.02; margin-bottom: 6px; }
+  .hub-sub { text-align: center; color: var(--blanco); font-weight: 700; font-style: italic; font-size: 15px; margin-bottom: 26px; }
+  .hub-lista { max-width: 460px; margin: 0 auto 26px; display: flex; flex-direction: column; gap: 12px; }
+  .hub-card {
+    display: flex; align-items: center; gap: 14px; cursor: pointer; text-align: left;
+    background: rgba(255,255,255,.9); border-radius: 18px; padding: 15px 18px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.08); border: 2px solid transparent;
+    transition: transform .12s ease;
+  }
+  .hub-card:hover { transform: translateY(-2px); }
+  .hub-num {
+    width: 34px; height: 34px; border-radius: 99px; flex: 0 0 auto;
+    background: var(--rosa); color: #fff; font-weight: 700; font-size: 16px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .hub-nombre { font-weight: 600; font-size: 18px; color: var(--negro); flex: 1; }
+  .hub-estado {
+    width: 26px; height: 26px; border-radius: 99px; flex: 0 0 auto; font-size: 14px;
+    border: 2px solid #d3c3ce; color: transparent;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .hub-card.hecha { border-color: var(--verde); }
+  .hub-card.hecha .hub-num { background: var(--verde); }
+  .hub-card.hecha .hub-estado { background: var(--verde); border-color: var(--verde); color: #fff; }
+  .hub-nota { text-align: center; color: var(--blanco-suave); font-size: 13px; margin-top: 12px; }
+  #btn-resultados[disabled] { opacity: .4; cursor: not-allowed; }
+
+  /* ---------- escena máquina de escribir (solo el menú) ---------- */
+  #hub { overflow-x: hidden; }
+  .maquina-escena { width: min(92vw, 430px); margin: 20px auto 0; position: relative; }
+  .hoja {
+    position: relative; z-index: 1;
+    background: #F7F3EA url("img/hoja-textura.webp") top center / 100% auto repeat-y;
+    padding: 32px 22px 44px; border-radius: 2px;
+    box-shadow: 0 12px 34px rgba(0, 0, 0, .18);
+  }
+  .maquina {
+    display: block; position: relative; z-index: 2;
+    width: 122%; margin-left: -11%; margin-top: -8px; pointer-events: none;
+  }
+  /* contenido "escrito" sobre la hoja */
+  .hoja .hub-titulo { color: var(--azul); margin-bottom: 4px; }
+  .hoja .hub-nombre {
+    font-family: 'Madani', 'Arial Black', sans-serif;
+    font-weight: 700; letter-spacing: .02em; font-size: 22px; color: var(--negro);
+    text-transform: uppercase;
+  }
+  .hoja .hub-nombre .hub-n { font-family: 'Petit Cochon', 'Arial Black', sans-serif; font-weight: normal; margin-right: 6px; color: var(--negro); }
+  .hoja .hub-sub { color: var(--gris-oscuro); margin-bottom: 20px; }
+  .hoja .hub-lista { max-width: none; margin: 0 0 22px; gap: 0; }
+  .hoja .hub-card {
+    background: transparent; box-shadow: none; border: none; border-radius: 0;
+    border-bottom: 1.6px dashed rgba(29, 29, 27, .22); padding: 13px 4px;
+  }
+  .hoja .hub-card:last-child { border-bottom: none; }
+  .hoja .hub-card:hover { transform: translateX(3px); }
+  .hoja .hub-card.hecha .hub-estado {
+    background: url("img/cara-feliz.webp") center / contain no-repeat;
+    border: none; color: transparent; width: 32px; height: 32px;
+  }
+  .hoja .hub-nota { color: var(--gris-oscuro); }
+
+  /* ---------- pantalla de instrucción ---------- */
+  #instruccion { text-align: center; display: flex; flex-direction: column; justify-content: center; min-height: 78vh; }
+  .inst-texto {
+    max-width: 540px; margin: 4px auto 32px; text-align: center;
+    font-weight: 500; font-size: 17.5px; line-height: 1.65; color: var(--blanco);
+  }
+  /* nota rosa (clip + carita) que contiene título + explicación de cada sección */
+  #instruccion { min-height: 88vh; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .nota-seccion {
+    --nw: min(92vw, 480px);                          /* ancho real de la nota */
+    width: var(--nw); margin: 0 auto;
+    min-height: calc(var(--nw) / 1.228);             /* altura natural (no se estira con 100% 100%) */
+    background: url("img/nota-seccion.webp") center / 100% 100% no-repeat;
+    box-sizing: border-box;
+    /* padding relativo al ANCHO DE LA NOTA (con calc), no al contenedor padre → igual en móvil y desktop */
+    padding: calc(var(--nw) * 0.19) calc(var(--nw) * 0.12) calc(var(--nw) * 0.10);
+    padding-top: calc(var(--nw) * var(--nota-pt, 0.19));
+    display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
+  }
+  .nota-seccion.nota-centrada { justify-content: center; padding-top: calc(var(--nw) * 0.22); }
+  /* en desktop, las notas NO centradas (estilos/colores/prendas/referentes) se centran
+     verticalmente entre el clip y la cara (en móvil quedan como estaban) */
+  @media (min-width: 768px) {
+    .nota-seccion:not(.nota-centrada) {
+      justify-content: center;
+      padding-top: calc(var(--nw) * 0.20);
+      padding-bottom: calc(var(--nw) * 0.16);
+    }
+  }
+  .nota-seccion .sec-titulo { color: var(--azul); margin-bottom: 6px; font-size: clamp(21px, 5vw, 29px); line-height: 1.05; }
+  .nota-seccion .inst-texto { color: var(--gris-oscuro); margin: 0; font-size: 15px; font-weight: 600; line-height: 1.4; max-width: 100%; }
+</style>
+</head>
+<body>
+
+<div id="barra-wrap" class="oculto">
+  <div id="barra-info"><span id="barra-seccion">Sección 1 de 7</span><span id="barra-pct">0%</span></div>
+  <div id="barra-fondo"><div id="barra-relleno"></div></div>
+</div>
+
+<!-- PORTADA -->
+<section id="portada" class="pantalla">
+  <div class="portada-saludo">Bienvenida al</div>
+  <h1>Test de <em>Estilo</em></h1>
+  <div class="fila-botones"><button class="btn btn-rosa" onclick="irAlIntro()">Comenzar test</button></div>
+</section>
+
+<!-- VIDEO DE BIENVENIDA (intro) -->
+<section id="intro" class="pantalla oculto">
+  <h2 class="intro-titulo">Antes de empezar</h2>
+  <p class="intro-sub">En este video te explico de qué se trata el test y cómo responderlo correctamente</p>
+  <div class="video-marco">
+    <!-- 👉 Cuando tengas el video, reemplaza el .video-placeholder de abajo por:
+         <video class="intro-video" controls playsinline preload="metadata" poster="video/portada.jpg">
+           <source src="video/intro.mp4" type="video/mp4">
+         </video>
+         (sube la carpeta video/ junto al index.html) -->
+    <div class="video-placeholder">
+      <svg viewBox="0 0 24 24" width="58" height="58" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="rgba(255,255,255,.9)"/><path d="M9.8 8.3v7.4l6-3.7z" fill="var(--rosa)"/></svg>
+      <span>Tu video de bienvenida irá aquí</span>
+    </div>
+  </div>
+  <div class="fila-botones"><button class="btn btn-rosa" onclick="comenzar()">Comenzar</button></div>
+</section>
+
+<!-- MENÚ PRINCIPAL (hub) -->
+<section id="hub" class="pantalla oculto">
+  <div class="maquina-escena">
+    <div class="hoja">
+      <h2 class="hub-titulo">Tu Test</h2>
+      <p class="hub-sub" id="hub-sub"></p>
+      <div class="hub-lista" id="hub-lista"></div>
+      <div class="fila-botones"><button class="btn btn-rosa" id="btn-resultados" onclick="mostrar('formulario')" disabled>Ver mis resultados</button></div>
+      <p class="hub-nota" id="hub-nota"></p>
+    </div>
+    <img class="maquina" src="img/maquina.webp" alt="">
+  </div>
+</section>
+
+<!-- INSTRUCCIÓN DE SECCIÓN -->
+<section id="instruccion" class="pantalla oculto">
+  <div class="nota-seccion">
+    <h2 class="sec-titulo" id="inst-titulo"></h2>
+    <p class="inst-texto" id="inst-texto"></p>
+  </div>
+  <div class="fila-botones">
+    <button class="btn btn-fantasma" onclick="irAlHub()">Volver</button>
+    <button class="btn btn-rosa" onclick="empezarSeccion()">Empezar</button>
+  </div>
+</section>
+
+<!-- SECCIÓN ACTIVA (test a pantalla completa) -->
+<section id="seccion" class="pantalla oculto">
+  <div id="sec-items"></div>
+  <div id="accion-bar">
+    <p class="contador-sel" id="contador-sel"></p>
+    <div class="fila-botones">
+      <button class="btn btn-fantasma" id="btn-atras" onclick="atrasSeccion()">Menú</button>
+      <button class="btn btn-azul" id="btn-siguiente" onclick="terminarSeccion()">Listo</button>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULARIO -->
+<section id="formulario" class="pantalla oculto">
+  <h2>¡Ya casi!</h2>
+  <p class="sec-instruccion">Tus resultados están listos. Déjame tus datos para mostrártelos y enviarte tu perfil de estilo.</p>
+  <div class="campo">
+    <label for="f-nombre">Nombre <span class="req">*</span></label>
+    <input id="f-nombre" type="text" autocomplete="name" placeholder="Tu nombre">
+    <p class="error-msg" id="err-nombre">Escribe tu nombre, por favor.</p>
+  </div>
+  <div class="campo">
+    <label for="f-correo">Correo <span class="req">*</span></label>
+    <input id="f-correo" type="email" autocomplete="email" placeholder="tucorreo@ejemplo.com">
+    <p class="error-msg" id="err-correo">Ese correo no parece válido.</p>
+  </div>
+  <div class="campo">
+    <label for="f-celular">Celular (WhatsApp)</label>
+    <input id="f-celular" type="tel" autocomplete="tel" placeholder="+56 9 1234 5678">
+    <p class="error-msg" id="err-celular">Ese número no parece válido.</p>
+    <p class="nota-celular">Si me dejas tu celular te envío por WhatsApp <strong>tu perfil de estilo más completo de regalo</strong> para que sea más fácil aplicar, y puedes aprovechar de preguntarme si tienes dudas 👌🏻🌟</p>
+  </div>
+  <div class="fila-botones">
+    <button class="btn btn-fantasma" onclick="irAlHub()">Atrás</button>
+    <button class="btn btn-rosa" id="btn-ver" onclick="enviarYVerResultados()">Ver mis resultados</button>
+  </div>
+  <p class="nota-privacidad">Tus datos se usan solo para enviarte tus resultados y acompañarte en tu proceso de estilo. Nada de spam. ♥</p>
+</section>
+
+<!-- RESULTADOS -->
+<section id="resultados" class="pantalla oculto">
+  <h2 id="res-saludo"></h2>
+  <div id="nube-estilos"></div>
+  <div class="lista-estilos" id="lista-estilos"></div>
+  <div class="reflexion">
+    <div class="reflexion-texto">
+      <h3>¿Cómo te fue?</h3>
+      <div class="reflexion-preguntas">
+        <p>¿Cómo te sientes con respecto a tus resultados?</p>
+        <p>¿Te hacen sentido?</p>
+        <p>¿Representan quién eres y lo que quieres proyectar?</p>
+        <p>¿Sientes que integran todas las facetas de tu personalidad?</p>
+        <p>Si le mostraras estos resultados a tu mejor amiga, ¿ella los avalaría?</p>
+      </div>
+    </div>
+  </div>
+  <div class="cta-final">
+    <p class="cta-titulo">¿Quieres llevar tu estilo al siguiente nivel?</p>
+    <p class="cta-sub">Este test es solo el comienzo, aquí te cuento cómo continuar tu proceso</p>
+    <div class="cta-manito" aria-hidden="true">
+      <svg viewBox="0 0 72 86" xmlns="http://www.w3.org/2000/svg"><path d="M24 10 L40 10 Q50 10 50 20 L50 18 Q60 20 60 27 Q60 34 50 33 L50 35 Q50 45 40 45 L32 45 L32 74 Q32 80 25 80 Q18 80 18 74 L18 45 Q14 45 14 37 L14 20 Q14 10 24 10 Z" fill="#FCE3EF" stroke="#1D1D1B" stroke-width="3.4" stroke-linejoin="round" stroke-linecap="round"/></svg>
+    </div>
+    <div class="video-marco cta-video">
+      <!-- 👉 Cuando tengas el video, reemplaza el .video-placeholder por:
+           <video class="intro-video" controls playsinline preload="metadata" poster="video/portada.jpg">
+             <source src="video/cierre.mp4" type="video/mp4">
+           </video> -->
+      <div class="video-placeholder">
+        <svg viewBox="0 0 24 24" width="58" height="58" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="rgba(255,255,255,.9)"/><path d="M9.8 8.3v7.4l6-3.7z" fill="var(--rosa)"/></svg>
+        <span>Tu video irá aquí</span>
+      </div>
+    </div>
+    <a id="cta-link" href="#" target="_blank"><button class="btn btn-rosa">Agenda tu Llamada de Claridad</button></a>
+  </div>
+  <p class="pie">dani orezzoli ® · Desbloquea tu Estilo Personal ®</p>
+</section>
+
+<script>
+/* ============ CONFIGURACIÓN ============ */
+// URL del Web App de Google Apps Script (para guardar leads en Google Sheets).
+// Mientras esté vacía, el test funciona igual pero no envía datos.
+const URL_GOOGLE_SHEETS = "https://script.google.com/macros/s/AKfycbwBwtdbl53WrnLxxN-j7OGlzjl2hy5ACcV06XVEoQHu6R9rzNvUt60f5d-eykTrOjw1VA/exec";
+// Link del botón final (WhatsApp de Dani para agendar la Llamada de Claridad):
+const URL_AGENDA = "https://wa.link/wp6yzp";
+// Sube este número cuando se reemplacen las imágenes, para que el navegador no muestre las antiguas:
+const VERSION_IMG = "3";
+
+/* ============ DATOS DEL TEST ============ */
+// colores de la paleta de resultados (hex dados por Dani, en orden natural→dramatico)
+const ESTILOS = {
+  natural:     { nombre: "Natural",     color: "#FFFBB2" },
+  tradicional: { nombre: "Tradicional", color: "#4865D1" },
+  elegante:    { nombre: "Elegante",    color: "#E85597" },
+  romantico:   { nombre: "Romántico",   color: "#EC90BB" },
+  seductor:    { nombre: "Seductor",    color: "#FF616F" },
+  creativo:    { nombre: "Creativo",    color: "#B3DDFF" },
+  dramatico:   { nombre: "Dramático",   color: "#D485EF" }
+};
+
+const PALABRAS = {
+  natural:     ["Natural","Sport","Vaquero","Surfer","Hippie","Bohemio","Tribal"],
+  tradicional: ["Navy","Clásico","Preppy","Old Money","Tradicional","Dark Academy","Light Academy"],
+  elegante:    ["Clean Girl","Minimalista","Elegante","Business","Monocromo","Parisino","Scandi Chic"],
+  romantico:   ["Cottagecore","Etherealcore","Romántico","Coquette","Grandmacore","Renacimiento","Pastel Goth"],
+  seductor:    ["Fetiche","Burlesque","Provocativo","Mobwife","Pinup","Miami","Baddie"],
+  creativo:    ["Maximalista","Portuguese Girl","Rave","Funk","Sesentero","Y2K","Whimsigoth"],
+  dramatico:   ["Dramático","Militar","Urbano","Grunge","Rockero","Gótico","Gorpcore"]
+};
+
+// Cada cuadrado es unitario y suma a la(s) línea(s) donde aparece.
+// El negro está una sola vez y suma a las tres columnas en las que figura.
+const COLORES = [
+  { hex: "#EFC9A7", nombre: "Arena",       estilos: ["natural"] },
+  { hex: "#77805C", nombre: "Oliva",       estilos: ["natural"] },
+  { hex: "#63453A", nombre: "Cacao",       estilos: ["natural"] },
+  { hex: "#B4820C", nombre: "Mostaza",     estilos: ["natural"] },
+
+  { hex: "#D7D5D0", nombre: "Gris Perla",     estilos: ["tradicional"] },
+  { hex: "#3A2A22", nombre: "Espresso",       estilos: ["tradicional"] },
+  { hex: "#D1DDF2", nombre: "Celeste claro",  estilos: ["tradicional"] },
+  { hex: "#2A2A5C", nombre: "Azul Marino",    estilos: ["tradicional"] },
+
+  { hex: "#F6F0E9", nombre: "Marfil",         estilos: ["elegante"] },
+  { hex: "#6E6E6E", nombre: "Gris Piedra",    estilos: ["elegante"] },
+  { hex: "#400A0A", nombre: "Burdeo Borgoña", estilos: ["elegante"] },
+
+  { hex: "#FFADB5", nombre: "Coral",          estilos: ["romantico"] },
+  { hex: "#E28BC8", nombre: "Chicle",         estilos: ["romantico"] },
+  { hex: "#B6DCB2", nombre: "Menta",          estilos: ["romantico"] },
+  { hex: "#AED4F6", nombre: "Celeste",        estilos: ["romantico"] },
+
+  { hex: "#8C1010", nombre: "Burdeo Granate", estilos: ["seductor"] },
+  { hex: "#C93028", nombre: "Rojo vibrante",  estilos: ["seductor"] },
+  { hex: "#B01A73", nombre: "Magenta",        estilos: ["seductor"] },
+
+  { hex: "#2566C6", nombre: "Cobalto",        estilos: ["creativo"] },
+  { hex: "#E97B10", nombre: "Mandarina",      estilos: ["creativo"] },
+  { hex: "#F5E44F", nombre: "Amarillo",       estilos: ["creativo"] },
+  { hex: "#A45FD0", nombre: "Lavanda",        estilos: ["creativo"] },
+
+  { hex: "#3A0A4B", nombre: "Berenjena",      estilos: ["dramatico"] },
+  { hex: "#13656B", nombre: "Turquesa",       estilos: ["dramatico"] },
+  { hex: "#1F2F9E", nombre: "Azul eléctrico", estilos: ["dramatico"] },
+
+  // negro: aparece en Elegante, Seductor y Dramático
+  { hex: "#000000", nombre: "Negro",       estilos: ["elegante", "seductor", "dramatico"] }
+];
+
+// Nombres de las fichas (orden: [estilo-1, estilo-2, estilo-3]).
+// PROPUESTA de Claude — Dani revisa y corrige lo que no calce.
+const NOMBRES = {
+  prendas: {
+    natural:     ["Falda boho", "Vestido de lino", "Polera básica"],
+    tradicional: ["Blazer a cuadros", "Pantalón sastre", "Trench clásico"],
+    elegante:    ["Blusa de seda", "Falda satinada", "Abrigo con diseño"],
+    romantico:   ["Blusa de volantes", "Short floral", "Vestido fluido"],
+    seductor:    ["Body negro", "Pantalón de cuero", "Minifalda de cuero"],
+    creativo:    ["Top de lunares", "Polera gráfica", "Pantalón multicolor"],
+    dramatico:   ["Top con hombreras", "Vestido estructurado", "Abrigo peludo"]
+  },
+  complementos: {
+    natural:     ["Aros de plumas", "Zapatillas blancas", "Mochila de cuero"],
+    tradicional: ["Aros de perla", "Mocasines", "Bolso grande de marca"],
+    elegante:    ["Cinturón fino", "Zapato slingback", "Bolso pequeño de marca"],
+    romantico:   ["Aros de flor", "Ballerinas", "Clutch de flores"],
+    seductor:    ["Argollas grandes", "Botines negros", "Bolso leopardo"],
+    creativo:    ["Collar de colores", "Zapatillas de colores", "Bolso entretenido"],
+    dramatico:   ["Collar statement", "Botas altas", "Bolso tote"]
+  },
+  textiles: {
+    natural:     ["Denim", "Lino", "Tie dye"],
+    tradicional: ["Rayas", "Tartán", "Vichy"],
+    elegante:    ["Tweed", "Raso o seda", "Plisado"],
+    romantico:   ["Floral", "Bordado inglés", "Bordado en relieve"],
+    seductor:    ["Leopardo", "Cuero", "Malla"],
+    creativo:    ["Abstracto colorido", "Lunares", "Colores lisos"],
+    dramatico:   ["Lentejuela", "Tachas", "Peludos"]
+  },
+  glam: {
+    natural:     ["Mirada natural", "Labios naturales", "Uñas nude cortas"],
+    tradicional: ["Delineado clásico", "Labios nude sutiles", "Manicure francesa"],
+    elegante:    ["Smokey suave", "Labios glossy", "Uñas nude almendradas"],
+    romantico:   ["Ojos en rosados", "Labios rosa", "Nail art romántico"],
+    seductor:    ["Smokey eye intenso", "Labios rojo o burdeo", "Uñas rojas"],
+    creativo:    ["Sombra con colores", "Labios fucsia", "Nail art colorido"],
+    dramatico:   ["Delineado gráfico", "Labios vino oscuro", "Uñas metálicas"]
+  },
+  referentes: {
+    natural:     ["Anne Hathaway", "Florence Welch", "Pocahontas"],
+    tradicional: ["Meghan Markle", "Charlotte York", "Blair Waldorf"],
+    elegante:    ["Hailey Bieber", "Audrey Hepburn", "Victoria Beckham"],
+    romantico:   ["Lana del Rey", "Taylor Swift", "Rapunzel"],
+    seductor:    ["Sofía Vergara", "Marilyn Monroe", "Kim Kardashian"],
+    creativo:    ["Iris Apfel", "Phoebe Buffay", "Carrie Bradshaw"],
+    dramatico:   ["Madonna", "Zendaya", "Miranda Priestly"]
+  }
+};
+
+function itemsColores() {
+  return COLORES.map((c, i) => ({
+    id: `colores:c${i}`, seccionId: "colores", tipoRender: "color",
+    hex: c.hex, nombre: c.nombre, estilos: c.estilos
+  }));
+}
+
+// ¿el color es oscuro? (para decidir texto blanco o negro sobre la pastilla)
+function esOscuro(hex) {
+  const r = parseInt(hex.substr(1, 2), 16), g = parseInt(hex.substr(3, 2), 16), b = parseInt(hex.substr(5, 2), 16);
+  return (0.299 * r + 0.587 * g + 0.114 * b) < 150;
+}
+
+function itemsDe(mapa, tipoRender, seccionId, conNombre) {
+  const items = [];
+  for (const estilo in mapa) {
+    mapa[estilo].forEach((valor, i) => {
+      items.push({ estilo, valor, indice: i + 1, tipoRender, seccionId, conNombre: !!conNombre });
+    });
+  }
+  return items;
+}
+function itemsImagen(seccionId, porEstilo, nombres, ext) {
+  const items = [];
+  for (const estilo in ESTILOS) {
+    for (let i = 1; i <= porEstilo; i++) {
+      items.push({
+        estilo, indice: i, seccionId, tipoRender: "imagen",
+        img: `img/${seccionId}-${estilo}-${i}.${ext || "jpg"}?v=${VERSION_IMG}`,
+        valor: nombres ? nombres[estilo][i-1] : "",
+        conNombre: !!nombres
+      });
+    }
+  }
+  return items;
+}
+
+function itemsTinder() {
+  const items = [];
+  for (const estilo in PALABRAS) {
+    PALABRAS[estilo].forEach((nombre, i) => {
+      items.push({
+        estilo, valor: nombre, indice: i + 1, seccionId: "aesthetics", tipoRender: "tinder",
+        img: `img/aesthetics-${estilo}-${i+1}.jpg?v=${VERSION_IMG}`
+      });
+    });
+  }
+  return items;
+}
+
+const SECCIONES = [
+  { id: "aesthetics", titulo: 'Estilos,<br><span>Aesthetics</span> y Tendencias', tipo: "tinder", cardIndex: 0,
+    instruccion: "Elige los estilos que te llaman ENERGÉTICAMENTE, su onda, su vibra. No necesariamente te tienen que gustar o tienes que verte usando el outfit en sí mismo.",
+    items: itemsTinder() },
+  { id: "colores", titulo: '<span>Colores</span>',
+    instruccion: "Marca todos los colores que sientes te representan como persona, que te atrae su energía o que te gusta mucho usar hoy en día.",
+    items: itemsColores() },
+  { id: "prendas", titulo: '<span>Prendas</span>', crema: true,
+    instruccion: "Marca las prendas que te identifican, no tiene que ser exactamente la que usarías, pero más que nada el concepto general de la prenda en base al nombre también.",
+    items: itemsImagen("prendas", 3, NOMBRES.prendas, "webp") },
+  { id: "textiles", titulo: 'Textiles,<br>Estampados y <span>Texturas</span>', verticales: true,
+    instruccion: "Marca el tipo de estampado o textura que te gusta, no importa si es en otro color o es levemente diferente.",
+    items: itemsImagen("textiles", 3, NOMBRES.textiles, "webp") },
+  { id: "complementos", titulo: '<span>Complementos</span>', crema: true, intercalar: true,
+    instruccion: "Marca cada complemento que te identifique. Importa el concepto, no la pieza exacta: si te gusta la idea aunque cambie el color o la forma, márcalo.",
+    items: itemsImagen("complementos", 3, NOMBRES.complementos, "webp") },
+  { id: "glam", titulo: '<span>Glam</span>', cuadradas: true, intercalar: true,
+    instruccion: "¿Cómo te haces hoy en día el maquillaje y las uñas? Marca lo que usas hoy en día y también lo que te gustaría integrar más.",
+    items: itemsImagen("glam", 3, NOMBRES.glam, "webp") },
+  { id: "referentes", titulo: '<span>Referentes</span>', verticales: true,
+    instruccion: "No se trata de la ropa que usan exactamente, sino de su vibra y energía. Marca las que te atraen como personas por su personalidad, la imagen que proyectan o su estilo en general.",
+    items: itemsImagen("referentes", 3, NOMBRES.referentes, "webp") }
+];
+
+/* ============ ESTADO ============ */
+let seccionActual = 0;
+const seleccion = new Set();      // claves "seccionId:estilo:indice"
+let resultadosCalculados = null;
+
+function clave(item) { return item.id || `${item.seccionId}:${item.estilo}:${item.indice}`; }
+
+// índice clave → item, para saber a qué estilo(s) suma cada selección
+const INDICE_ITEMS = {};
+SECCIONES.forEach(s => s.items.forEach(it => { INDICE_ITEMS[clave(it)] = it; }));
+
+function barajar(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+// Baraja alternando por tipo (en Glam: ojo → labios → uñas; en Complementos: joya → zapato → bolso).
+// El estilo de cada uno sale al azar, pero nunca se repite el mismo tipo seguido.
+function barajarIntercalado(items) {
+  const grupos = {};
+  items.forEach(it => (grupos[it.indice] = grupos[it.indice] || []).push(it));
+  const tipos = barajar(Object.keys(grupos));          // el ciclo arranca por un tipo al azar
+  tipos.forEach(t => { grupos[t] = barajar(grupos[t]); });
+  const salida = [];
+  while (salida.length < items.length) {
+    tipos.forEach(t => { if (grupos[t].length) salida.push(grupos[t].pop()); });
+  }
+  return salida;
+}
+
+// Se baraja una vez por carga para que las columnas del PDF no queden juntas
+SECCIONES.forEach(s => {
+  s.items = s.intercalar ? barajarIntercalado(s.items) : barajar(s.items);
+});
+
+/* ============ NAVEGACIÓN ============ */
+const completadas = new Set();   // índices de secciones ya terminadas
+const MENU = {
+  aesthetics: "Estilos", colores: "Colores", prendas: "Prendas", textiles: "Textiles",
+  complementos: "Complementos", glam: "Glam", referentes: "Referentes"
+};
+
+function mostrar(idPantalla) {
+  ["portada","intro","hub","instruccion","seccion","formulario","resultados"].forEach(id =>
+    document.getElementById(id).classList.toggle("oculto", id !== idPantalla));
+  document.getElementById("barra-wrap").classList.add("oculto");   // pantalla completa: sin barra superior
+  window.scrollTo({ top: 0 });
+}
+
+function irAlIntro() { mostrar("intro"); }
+
+function comenzar() { irAlHub(); }
+
+/* ---------- menú principal ---------- */
+function irAlHub() { pintarHub(); mostrar("hub"); }
+
+function pintarHub() {
+  const lista = document.getElementById("hub-lista");
+  lista.innerHTML = "";
+  SECCIONES.forEach((s, i) => {
+    const card = document.createElement("div");
+    card.className = "hub-card" + (completadas.has(i) ? " hecha" : "");
+    card.innerHTML = `<span class="hub-nombre"><span class="hub-n">${i + 1}.</span> ${MENU[s.id] || s.id}</span>
+      <span class="hub-estado">✓</span>`;
+    card.onclick = () => abrirInstruccion(i);
+    lista.appendChild(card);
+  });
+  const n = completadas.size, total = SECCIONES.length;
+  document.getElementById("hub-sub").textContent = `${n} de ${total} secciones completadas`;
+  const listo = n === total;
+  document.getElementById("btn-resultados").disabled = !listo;
+  document.getElementById("hub-nota").textContent = listo
+    ? "¡Listo! Ya puedes ver tu resultado ✦"
+    : "Completa las 7 secciones para ver tu resultado";
+}
+
+function abrirInstruccion(i) {
+  seccionActual = i;
+  document.getElementById("inst-titulo").innerHTML = SECCIONES[i].titulo;
+  document.getElementById("inst-texto").textContent = SECCIONES[i].instruccion;
+  // posición vertical del contenido dentro de la nota, ajustada por sección
+  const NOTA_CENTER = ["textiles", "complementos", "glam"];          // centrado vertical
+  const NOTA_TOP = { colores: "0.27", prendas: "0.23", referentes: "0.23" }; // fracción del ancho (flex-start)
+  const id = SECCIONES[i].id, nota = document.querySelector(".nota-seccion");
+  nota.classList.toggle("nota-centrada", NOTA_CENTER.includes(id));
+  nota.style.setProperty("--nota-pt", NOTA_TOP[id] || "0.19");
+  mostrar("instruccion");
+}
+
+function empezarSeccion() {
+  const s = SECCIONES[seccionActual];
+  if (s.tipo === "tinder") s.cardIndex = 0;   // reinicia el mazo al entrar
+  pintarSeccion();
+  mostrar("seccion");
+}
+
+function terminarSeccion() {
+  completadas.add(seccionActual);
+  irAlHub();
+}
+
+function atrasSeccion() {
+  const s = SECCIONES[seccionActual];
+  if (s.tipo === "tinder" && s.cardIndex > 0) {
+    s.cardIndex--; pintarDeck(); actualizarBarra(); actualizarContador();
+    return;
+  }
+  irAlHub();
+}
+
+function pintarSeccion() {
+  const s = SECCIONES[seccionActual];
+  const cont = document.getElementById("sec-items");
+  cont.innerHTML = "";
+
+  document.getElementById("contador-sel").style.display = s.tipo === "tinder" ? "none" : "block";
+  document.getElementById("seccion").classList.toggle("seccion-deck", s.tipo === "tinder");
+  if (s.tipo === "tinder") {
+    cont.className = "deck-wrap";
+    if (s.cardIndex >= s.items.length) s.cardIndex = s.items.length - 1;
+    cont.innerHTML = `
+      <div class="deck" id="deck"></div>
+      <div class="deck-controles">
+        <button class="btn-circulo btn-no" onclick="responderTinder(false)" aria-label="No es mi estilo">✕</button>
+        <div class="deck-progreso" id="deck-progreso"></div>
+        <button class="btn-circulo btn-si" onclick="responderTinder(true)" aria-label="Me identifica">♥</button>
+      </div>`;
+    pintarDeck();
+    actualizarBarra();
+    actualizarContador();
+    return;
+  }
+
+  cont.className = s.items[0].tipoRender === "chip" ? "grilla-chips"
+                 : s.items[0].tipoRender === "color" ? "lista-pastillas"
+                 : "grilla-cartas" + (s.cuadradas ? " cuadradas" : "") + (s.verticales ? " verticales" : "") + (s.crema ? " crema" : "") + ((s.verticales || s.cuadradas) ? " nombre-encima" : "");
+
+  s.items.forEach(item => {
+    let el;
+    if (item.tipoRender === "chip") {
+      el = document.createElement("div");
+      el.className = "chip";
+      el.textContent = item.valor;
+    } else if (item.tipoRender === "color") {
+      el = document.createElement("div");
+      el.className = "pastilla" + (esOscuro(item.hex) ? " oscura" : "");
+      el.style.background = item.hex;
+      el.innerHTML = `<span class="pastilla-nombre">${item.nombre}</span><span class="pastilla-check">♥</span>`;
+    } else {
+      el = document.createElement("div");
+      el.className = "carta";
+      el.innerHTML = `<img src="${item.img}" loading="lazy" alt="">` +
+                     (item.conNombre ? `<div class="nombre">${item.valor}</div>` : "");
+    }
+    if (seleccion.has(clave(item))) el.classList.add("sel");
+    el.onclick = () => {
+      const k = clave(item);
+      seleccion.has(k) ? seleccion.delete(k) : seleccion.add(k);
+      el.classList.toggle("sel");
+      actualizarContador();
+    };
+    cont.appendChild(el);
+  });
+
+  actualizarBarra();
+  actualizarContador();
+}
+
+function actualizarBarra() {
+  const s = SECCIONES[seccionActual];
+  // en el mazo, "Atrás" vuelve una tarjeta; en el resto, vuelve al menú
+  document.getElementById("btn-atras").textContent =
+    (s.tipo === "tinder" && s.cardIndex > 0) ? "Atrás" : "Menú";
+}
+
+/* ---------- deck estilo tinder ---------- */
+function pintarDeck() {
+  const s = SECCIONES[seccionActual];
+  const deck = document.getElementById("deck");
+  deck.innerHTML = "";
+  // pinta hasta 3 tarjetas: la actual encima, las siguientes detrás
+  for (let k = Math.min(s.cardIndex + 2, s.items.length - 1); k >= s.cardIndex; k--) {
+    const item = s.items[k];
+    const prof = k - s.cardIndex;
+    const el = document.createElement("div");
+    el.className = "tarjeta-tinder";
+    el.style.transform = `translateY(${prof * 10}px) scale(${1 - prof * 0.045})`;
+    el.style.zIndex = 10 - prof;
+    el.style.transition = "transform .25s ease, opacity .25s ease";
+    el.innerHTML = `<div class="tarjeta-forma"><img src="${item.img}" alt="${item.valor}" draggable="false"></div>
+      <div class="stamp si">SÍ ♥</div>
+      <div class="stamp no">NO ✕</div>`;
+    if (prof === 0) activarSwipe(el);
+    deck.appendChild(el);
+  }
+  document.getElementById("deck-progreso").textContent = `${s.cardIndex + 1} / ${s.items.length}`;
+}
+
+function responderTinder(si, dxSalida) {
+  const s = SECCIONES[seccionActual];
+  if (s.cardIndex >= s.items.length) return;
+  const item = s.items[s.cardIndex];
+  const k = clave(item);
+  si ? seleccion.add(k) : seleccion.delete(k);
+
+  const top = document.querySelector("#deck .tarjeta-tinder:last-child");
+  if (top) {
+    const dx = dxSalida !== undefined ? dxSalida : (si ? 1 : -1) * 500;
+    top.style.transition = "transform .3s ease, opacity .3s ease";
+    top.style.transform = `translateX(${dx}px) rotate(${dx / 12}deg)`;
+    top.style.opacity = "0";
+  }
+  s.cardIndex++;
+  actualizarContador();
+  actualizarBarra();
+  if (s.cardIndex >= s.items.length) {
+    setTimeout(terminarSeccion, 320);   // mazo terminado → vuelve al menú marcado ✓
+  } else {
+    setTimeout(pintarDeck, 180);
+  }
+}
+
+function activarSwipe(el) {
+  let x0 = null, dx = 0;
+  el.addEventListener("pointerdown", e => {
+    x0 = e.clientX; dx = 0;
+    el.setPointerCapture(e.pointerId);
+    el.style.transition = "none";
+  });
+  el.addEventListener("pointermove", e => {
+    if (x0 === null) return;
+    dx = e.clientX - x0;
+    el.style.transform = `translateX(${dx}px) rotate(${dx / 14}deg)`;
+    el.querySelector(".stamp.si").style.opacity = Math.max(0, Math.min(1, dx / 80));
+    el.querySelector(".stamp.no").style.opacity = Math.max(0, Math.min(1, -dx / 80));
+  });
+  const soltar = () => {
+    if (x0 === null) return;
+    x0 = null;
+    if (Math.abs(dx) > 90) {
+      responderTinder(dx > 0, dx > 0 ? 600 : -600);
+    } else {
+      el.style.transition = "transform .25s ease";
+      el.style.transform = "translateX(0) rotate(0)";
+      el.querySelector(".stamp.si").style.opacity = 0;
+      el.querySelector(".stamp.no").style.opacity = 0;
+    }
+  };
+  el.addEventListener("pointerup", soltar);
+  el.addEventListener("pointercancel", soltar);
+}
+
+function actualizarContador() {
+  const s = SECCIONES[seccionActual];
+  const n = s.items.filter(it => seleccion.has(clave(it))).length;
+  document.getElementById("contador-sel").textContent =
+    n === 0 ? "Toca todo lo que te identifique ♥" : `${n} seleccionado${n === 1 ? "" : "s"} ♥`;
+}
+
+
+/* ============ CÁLCULO ============ */
+function calcular() {
+  const conteo = {};
+  for (const e in ESTILOS) conteo[e] = 0;
+  seleccion.forEach(k => {
+    const item = INDICE_ITEMS[k];
+    if (!item) return;
+    // un ítem puede sumar a varias líneas (ej: el negro)
+    (item.estilos || [item.estilo]).forEach(e => conteo[e]++);
+  });
+  const total = Object.values(conteo).reduce((a, b) => a + b, 0);
+  const res = Object.entries(conteo).map(([estilo, n]) => ({
+    estilo, n, pct: total ? Math.round(n / total * 100) : 0
+  }));
+  res.sort((a, b) => b.n - a.n);
+  return { res, total };
+}
+
+/* ============ FORMULARIO Y ENVÍO ============ */
+function validar(idCampo, idError, cond) {
+  const ok = cond(document.getElementById(idCampo).value.trim());
+  document.getElementById(idError).style.display = ok ? "none" : "block";
+  return ok;
+}
+
+async function enviarYVerResultados() {
+  const okNombre  = validar("f-nombre",  "err-nombre",  v => v.length >= 2);
+  const okCorreo  = validar("f-correo",  "err-correo",  v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v));
+  // celular OPCIONAL: solo se valida el formato si escribió algo
+  const celVal = document.getElementById("f-celular").value.trim();
+  const okCelular = celVal === ""
+    ? (document.getElementById("err-celular").style.display = "none", true)
+    : validar("f-celular", "err-celular", v => v.replace(/\D/g, "").length >= 8);
+  if (!okNombre || !okCorreo || !okCelular) return;
+
+  resultadosCalculados = calcular();
+  const datos = {
+    fecha: new Date().toISOString(),
+    nombre: document.getElementById("f-nombre").value.trim(),
+    correo: document.getElementById("f-correo").value.trim(),
+    celular: document.getElementById("f-celular").value.trim(),
+    totalSelecciones: resultadosCalculados.total
+  };
+  resultadosCalculados.res.forEach(r => datos[r.estilo] = r.pct);
+
+  if (URL_GOOGLE_SHEETS) {
+    const btn = document.getElementById("btn-ver");
+    btn.disabled = true; btn.textContent = "Guardando…";
+    try {
+      await fetch(URL_GOOGLE_SHEETS, {
+        method: "POST", mode: "no-cors",
+        headers: { "Content-Type": "text/plain" },
+        body: JSON.stringify(datos)
+      });
+    } catch (e) { console.error("No se pudo guardar el lead:", e); }
+    btn.disabled = false; btn.textContent = "Ver mis resultados";
+  } else {
+    console.log("Lead capturado (configura URL_GOOGLE_SHEETS para guardarlo):", datos);
+  }
+  pintarResultados(datos.nombre);
+}
+
+/* ============ RESULTADOS ============ */
+function pintarResultados(nombre) {
+  const { res } = resultadosCalculados;
+  document.getElementById("res-saludo").innerHTML = `${nombre}<span class="res-linea2">Esta es la energía de tu estilo</span>`;
+  document.getElementById("cta-link").href = URL_AGENDA;
+
+  // nube de burbujas orgánicas, tamaño proporcional al porcentaje
+  const nube = document.getElementById("nube-estilos");
+  nube.innerHTML = "";
+  const giros   = [-6, 5, -3, 6, -4, 3, -2];         // inclinación orgánica
+  const conValor = res.filter(r => r.pct > 0);
+  const maxPct = Math.max(...conValor.map(r => r.pct), 1);
+  const n = conValor.length;
+  // 1) posiciones y tamaños "crudos": diámetro = % (proporcional), dominante al centro y resto en anillo
+  const raw = conValor.map((r, i) => {
+    const w = r.pct;
+    if (i === 0) return { x: 0, y: 0, w, r };
+    const ang = (-90 + (i - 1) * (360 / (n - 1))) * Math.PI / 180;
+    const rad = maxPct * 0.72;                          // radio del anillo (más separación entre burbujas)
+    return { x: rad * Math.cos(ang), y: rad * Math.sin(ang), w, r };
+  });
+  // 2) caja que envuelve todo el racimo (considerando el tamaño de cada burbuja)
+  let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
+  raw.forEach(b => {
+    minX = Math.min(minX, b.x - b.w / 2); maxX = Math.max(maxX, b.x + b.w / 2);
+    minY = Math.min(minY, b.y - b.w / 2); maxY = Math.max(maxY, b.y + b.w / 2);
+  });
+  const cxRaw = (minX + maxX) / 2, cyRaw = (minY + maxY) / 2;
+  // 3) escalar para llenar el contenedor dejando margen, y centrar el conjunto en (50,50)
+  const margen = 4;                                     // % de margen a cada lado (para que no toque en móvil)
+  const escala = (100 - 2 * margen) / Math.max(maxX - minX, maxY - minY);
+  raw.forEach((b, i) => {
+    const w = b.w * escala;
+    const x = 50 + (b.x - cxRaw) * escala;
+    const y = 50 + (b.y - cyRaw) * escala;
+    const wrap = document.createElement("div");
+    wrap.className = "blob-wrap";
+    wrap.style.cssText = `position:absolute;left:${x}%;top:${y}%;width:${w}cqw;aspect-ratio:1;` +
+      `transform:translate(-50%,-50%) rotate(${giros[i % giros.length]}deg);` +
+      `z-index:${i === 0 ? 99 : i};font-size:${(w * 0.155).toFixed(2)}cqw;`;
+    const el = document.createElement("div");
+    el.className = "blob";
+    el.style.background = ESTILOS[b.r.estilo].color;
+    el.innerHTML = `<span class="blob-pct">${b.r.pct}%</span><span class="blob-nom">${ESTILOS[b.r.estilo].nombre}</span>`;
+    wrap.appendChild(el);
+    nube.appendChild(wrap);
+  });
+
+  const lista = document.getElementById("lista-estilos");
+  lista.innerHTML = "";
+  res.forEach((r, i) => {
+    const fila = document.createElement("div");
+    fila.className = "fila-estilo";
+    fila.innerHTML = `
+      <div class="cab">
+        <span class="nom"><span class="punto" style="background:${ESTILOS[r.estilo].color}"></span>
+          ${ESTILOS[r.estilo].nombre} ${i < 3 && r.pct > 0 ? '<span class="top-badge">Top ' + (i+1) + '</span>' : ''}</span>
+        <span class="pct">${r.pct}%</span>
+      </div>
+      <div class="pista"><div class="relleno" style="background:${ESTILOS[r.estilo].color}" data-w="${r.pct}%"></div></div>`;
+    lista.appendChild(fila);
+  });
+
+  document.getElementById("barra-seccion").textContent = "Resultados";
+  document.getElementById("barra-pct").textContent = "100%";
+  document.getElementById("barra-relleno").style.width = "100%";
+  mostrar("resultados");
+  requestAnimationFrame(() =>
+    document.querySelectorAll(".relleno").forEach(el => el.style.width = el.dataset.w));
+}
+</script>
+</body>
+</html>
