@@ -63,7 +63,7 @@
     position: fixed; inset: 0; z-index: -1;
     background:
       linear-gradient(rgba(255, 255, 255, .15), rgba(255, 255, 255, .15)),
-      url("img/fondo-app.webp") center center / cover no-repeat;
+      url("fondo-app.webp") center center / cover no-repeat;
     background-color: #F7C3DA;
   }
   .oculto { display: none !important; }
@@ -191,7 +191,7 @@
   .pastilla-check {
     margin-left: auto; opacity: 0; transform: scale(.5); transition: all .15s ease;
     width: 22px; height: 22px; color: transparent; flex: 0 0 auto;
-    background: url("img/cara-feliz.webp") center / contain no-repeat;
+    background: url("cara-feliz.webp") center / contain no-repeat;
     filter: drop-shadow(0 1px 3px rgba(0,0,0,.3));
   }
   .pastilla.sel { z-index: 3; box-shadow: 0 0 0 3px #fff, 0 3px 12px rgba(0,0,0,.25); }
@@ -209,7 +209,7 @@
   .carta.sel { border-color: var(--rosa); }
   .carta.sel::after {
     content: ""; position: absolute; top: 7px; right: 8px; width: 22px; height: 22px;
-    background: url("img/cara-feliz.webp") center / contain no-repeat;
+    background: url("cara-feliz.webp") center / contain no-repeat;
     filter: drop-shadow(0 1px 3px rgba(0,0,0,.35));
   }
   .carta img { width: 100%; aspect-ratio: 1/1.15; object-fit: contain; background: #fff; display: block; padding: 8px; }
@@ -395,7 +395,7 @@
     --nw: min(94vw, 460px);                        /* ancho real del cuaderno */
     width: var(--nw); margin: 56px auto 48px;
     min-height: calc(var(--nw) / 0.698);           /* proporción del cuaderno nuevo (no se estira) */
-    background: url("img/cuaderno.webp") center / 100% 100% no-repeat;
+    background: url("cuaderno.webp") center / 100% 100% no-repeat;
     box-sizing: border-box;
     /* padding relativo al ANCHO DEL CUADERNO (calc), no al padre → igual en móvil y desktop */
     padding: calc(var(--nw) * 0.23) calc(var(--nw) * 0.11) calc(var(--nw) * 0.10) calc(var(--nw) * 0.33);
@@ -467,7 +467,7 @@
   .maquina-escena { width: min(92vw, 430px); margin: 20px auto 0; position: relative; }
   .hoja {
     position: relative; z-index: 1;
-    background: #F7F3EA url("img/hoja-textura.webp") top center / 100% auto repeat-y;
+    background: #F7F3EA url("hoja-textura.webp") top center / 100% auto repeat-y;
     padding: 32px 22px 44px; border-radius: 2px;
     box-shadow: 0 12px 34px rgba(0, 0, 0, .18);
   }
@@ -492,7 +492,7 @@
   .hoja .hub-card:last-child { border-bottom: none; }
   .hoja .hub-card:hover { transform: translateX(3px); }
   .hoja .hub-card.hecha .hub-estado {
-    background: url("img/cara-feliz.webp") center / contain no-repeat;
+    background: url("cara-feliz.webp") center / contain no-repeat;
     border: none; color: transparent; width: 32px; height: 32px;
   }
   .hoja .hub-nota { color: var(--gris-oscuro); }
@@ -509,7 +509,7 @@
     --nw: min(92vw, 480px);                          /* ancho real de la nota */
     width: var(--nw); margin: 0 auto;
     min-height: calc(var(--nw) / 1.228);             /* altura natural (no se estira con 100% 100%) */
-    background: url("img/nota-seccion.webp") center / 100% 100% no-repeat;
+    background: url("nota-seccion.webp") center / 100% 100% no-repeat;
     box-sizing: border-box;
     /* padding relativo al ANCHO DE LA NOTA (con calc), no al contenedor padre → igual en móvil y desktop */
     padding: calc(var(--nw) * 0.19) calc(var(--nw) * 0.12) calc(var(--nw) * 0.10);
@@ -572,7 +572,7 @@
       <div class="fila-botones"><button class="btn btn-rosa" id="btn-resultados" onclick="mostrar('formulario')" disabled>Ver mis resultados</button></div>
       <p class="hub-nota" id="hub-nota"></p>
     </div>
-    <img class="maquina" src="img/maquina.webp" alt="">
+    <img class="maquina" src="maquina.webp" alt="">
   </div>
 </section>
 
@@ -814,7 +814,7 @@ function itemsImagen(seccionId, porEstilo, nombres, ext) {
     for (let i = 1; i <= porEstilo; i++) {
       items.push({
         estilo, indice: i, seccionId, tipoRender: "imagen",
-        img: `img/${seccionId}-${estilo}-${i}.${ext || "jpg"}?v=${VERSION_IMG}`,
+        img: `${seccionId}-${estilo}-${i}.${ext || "jpg"}?v=${VERSION_IMG}`,
         valor: nombres ? nombres[estilo][i-1] : "",
         conNombre: !!nombres
       });
@@ -829,7 +829,7 @@ function itemsTinder() {
     PALABRAS[estilo].forEach((nombre, i) => {
       items.push({
         estilo, valor: nombre, indice: i + 1, seccionId: "aesthetics", tipoRender: "tinder",
-        img: `img/aesthetics-${estilo}-${i+1}.jpg?v=${VERSION_IMG}`
+        img: `aesthetics-${estilo}-${i+1}.jpg?v=${VERSION_IMG}`
       });
     });
   }
