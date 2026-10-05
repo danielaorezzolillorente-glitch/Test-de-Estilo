@@ -659,6 +659,9 @@
 // URL del Web App de Google Apps Script (para guardar leads en Google Sheets).
 // Mientras esté vacía, el test funciona igual pero no envía datos.
 const URL_GOOGLE_SHEETS = "https://script.google.com/macros/s/AKfycbwBwtdbl53WrnLxxN-j7OGlzjl2hy5ACcV06XVEoQHu6R9rzNvUt60f5d-eykTrOjw1VA/exec";
+// URL del CRM (para que la persona aparezca automáticamente en la pestaña Leads → Test de Estilo).
+// Mientras esté vacía, el test funciona igual pero no la envía al CRM.
+const URL_CRM = "https://crm-instagram-server-production.up.railway.app/api/leads-entrada/test-estilo?key=alojaponconalojamientoenjamon";
 // Link del botón final (WhatsApp de Dani para agendar la Llamada de Claridad):
 const URL_AGENDA = "https://wa.me/56988230012";
 // Sube este número cuando se reemplacen las imágenes, para que el navegador no muestre las antiguas:
@@ -1158,16 +1161,29 @@ async function enviarYVerResultados() {
   };
   resultadosCalculados.res.forEach(r => datos[r.estilo] = r.pct);
 
-  if (URL_GOOGLE_SHEETS) {
+  if (URL_GOOGLE_SHEETS || URL_CRM) {
     const btn = document.getElementById("btn-ver");
     btn.disabled = true; btn.textContent = "Guardando…";
-    try {
-      await fetch(URL_GOOGLE_SHEETS, {
-        method: "POST", mode: "no-cors",
-        headers: { "Content-Type": "text/plain" },
-        body: JSON.stringify(datos)
-      });
-    } catch (e) { console.error("No se pudo guardar el lead:", e); }
+    const envios = [];
+    if (URL_GOOGLE_SHEETS) {
+      envios.push(
+        fetch(URL_GOOGLE_SHEETS, {
+          method: "POST", mode: "no-cors",
+          headers: { "Content-Type": "text/plain" },
+          body: JSON.stringify(datos)
+        }).catch(e => console.error("No se pudo guardar el lead (Sheets):", e))
+      );
+    }
+    if (URL_CRM) {
+      envios.push(
+        fetch(URL_CRM, {
+          method: "POST", mode: "no-cors",
+          headers: { "Content-Type": "text/plain" },
+          body: JSON.stringify(datos)
+        }).catch(e => console.error("No se pudo guardar el lead (CRM):", e))
+      );
+    }
+    await Promise.all(envios);
     btn.disabled = false; btn.textContent = "Ver mis resultados";
   } else {
     console.log("Lead capturado (configura URL_GOOGLE_SHEETS para guardarlo):", datos);
